@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المنتجات - المحلات التجارية</title>
+    <link rel="stylesheet" href="crud.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏪 إدارة المنتجات</h1>
+            <p>نظام إدارة المنتجات للمحلات التجارية</p>
+        </div>
+
+        <div class="main-content">
+            <!-- قسم إضافة المنتج -->
+            <div class="form-section">
+                <h2 class="form-title">➕ إضافة منتج جديد</h2>
+               
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="title">اسم المنتج</label>
+                            <input type="text" id="title" required placeholder="أدخل اسم المنتج">
+                        </div>
+                         <div class="form-group">
+                            <label for="count" id="count-lb"> العدد</label>
+                          
+                            <input type="number" id="count">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">نوع المنتج</label>
+                          
+                            <input type="text" id="category">
+                        </div>
+                       <div class="form-group">
+                            <label for="price">السعر</label>
+                            <input type="number" id="price" step="0.01" required placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="taxes">الضريبة (%)</label>
+                            <input type="number" id="taxes" step="0.01" min="0" max="100" placeholder="15">
+                        </div>
+                        <div class="form-group">
+                            <label for="discount">الخصم (%)</label>
+                            <input type="number" id="discount" step="0.01" min="0" max="100" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">التاريخ</label>
+                            <input type="date" id="date" >
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" id="submit" class="btn btn-primary">إضافة المنتج</button>
+                    </div>
+                
+            </div>
+           <div style="display:flex;justify-content: center;align-items: center;"  >
+            <div class="date-massage" id="date-massage">
+                            </div>
+        </div>
+
+            <!-- قسم البحث -->
+            <div class="search-section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔍 البحث عن المنتجات</h3>
+                <div class="search-box">
+                    <div class="form-group">
+                        <label for="searchInput">البحث</label>
+                        <input type="text" id="search" onkeyup="searchData(this.value)" placeholder="ابحث بالاسم أو النوع...">
+                    </div>
+                    <div class="form-group ">
+                        <button type="submit" onclick="searchDataMood(this.id)" id="searchTitle" class="btn btn-primary"> بحث بالإسم</button>
+                        <button type="submit" onclick="searchDataMood(this.id)" id="searchCategory" class="btn btn-primary"> بحث بالنوع</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم عرض المنتجات -->
+            <div class="products-section">
+                <div class="products-title">📦 قائمة المنتجات</div>
+                <div class="del">
+                    <button id="deleteAll" class="btn btn-primary">  مسح الكل ()  </button>
+                </div>
+                <div id="productsContainer">
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>اسم المنتج</th>
+                                <th>العدد </th>
+                              
+                                <th>النوع</th>
+                                <th>السعر الأساسي</th>
+                                <th>الضريبة</th>
+                                <th>الخصم</th>
+                                <th>السعر النهائي</th>
+                                <th>مسح</th>
+                                <th>تعديل</th>
+                                <th>التاريخ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                   
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="crud.js">
+      
+    </script>
+</body>
+</html>
